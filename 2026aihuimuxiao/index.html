@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#070a10" />
+<title>2026 爱回母校 · 地区 QQ 群</title>
+<meta name="description" content="选择省份与城市，查看对应地区 2026 爱回母校活动 QQ 群二维码。" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<div class="aurora" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+</div>
+
+<main class="page">
+  <header class="hero">
+    <p class="eyebrow"><span class="dot"></span>2026 · 爱回母校</p>
+    <h1>南京邮电大学<br /><span class="grad">各地区宣讲QQ群汇总</span></h1>
+    <p class="lede">选择你所在的省份与城市，扫码加入对应的宣讲群。<br class="only-wide" />江苏省可精确到 13 个地级市。</p>
+
+    <button id="openPicker" class="cta" type="button">
+      <span>选择省市</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+    </button>
+
+    <p class="meta">31 个省级行政区 · 43 个地区群 </p>
+  </header>
+
+  <section id="result" class="result" hidden aria-live="polite">
+    <div class="result-head">
+      <div>
+        <p class="result-kicker" id="resultKicker">当前地区</p>
+        <h2 id="resultTitle">—</h2>
+      </div>
+      <button id="changeBtn" class="ghost" type="button">更换地区</button>
+    </div>
+
+    <div id="stage" class="stage" data-state="idle">
+      <div class="skeleton" id="skeleton" hidden aria-hidden="true">
+        <span class="shimmer"></span>
+        <p>正在加载二维码…</p>
+      </div>
+
+      <figure class="qr-frame" id="qrFrame" hidden>
+        <img id="qrImage" alt="" decoding="async" />
+      </figure>
+
+      <div class="empty" id="empty" hidden>
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6" /><rect x="13.5" y="3.5" width="7" height="7" rx="1.6" /><rect x="3.5" y="13.5" width="7" height="7" rx="1.6" /><path d="M14 14h2.5v2.5H14zM19 19h1.5v1.5H19zM14 19.5h1.5M19.5 14v1.5" /></svg>
+        </div>
+        <p class="empty-title">暂无该地区图片</p>
+        <p class="empty-sub">该地区二维码还未上传，请选择其他地区，或联系活动负责人补充。</p>
+        <button id="emptyRetry" class="ghost" type="button">重新选择</button>
+      </div>
+    </div>
+
+    <p class="hint" id="hint">用 QQ 扫描二维码即可加入群聊 · 手机上可长按图片识别</p>
+  </section>
+</main>
+
+<footer class="page-footer">
+  <p>制作：招生宣传志愿者协会</p>
+</footer>
+
+<div class="scrim" id="scrim" hidden>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <div>
+        <p class="modal-kicker">STEP 01 / 02</p>
+        <h3 id="modalTitle">选择你的地区</h3>
+      </div>
+      <button id="closeBtn" class="icon-btn" type="button" aria-label="关闭">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="field">
+        <label for="province">省份 / 自治区 / 直辖市</label>
+        <div class="select-wrap">
+          <select id="province" autocomplete="off">
+            <option value="">请选择省份</option>
+          </select>
+          <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+        </div>
+      </div>
+
+      <div class="field city-field" id="cityField" hidden>
+        <label for="city">城市 <span class="tag">江苏省</span></label>
+        <div class="select-wrap">
+          <select id="city" autocomplete="off">
+            <option value="">请选择城市</option>
+          </select>
+          <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+        </div>
+      </div>
+
+      <p class="modal-note" id="modalNote">江苏省下辖 13 个地级市，选择城市可获得更精确的群二维码。</p>
+    </div>
+
+    <div class="modal-foot">
+      <button id="cancelBtn" class="ghost" type="button">取消</button>
+      <button id="confirmBtn" class="cta cta-sm" type="button" disabled>查看二维码</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
